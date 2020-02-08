@@ -1,0 +1,34 @@
+<div class="container">
+  <form [formGroup]="employeeForm" (ngSubmit)="submitRegistration()" novalidate>
+    <div *ngIf="validMessage != ''">
+      <h3 class="has-info">{{validMessage}}</h3>
+    </div>
+    <div class="form-group">
+      <label>First Name</label>
+      <input type="text" class="form-control" formControlName="firstName" required autofocus/>
+    </div>
+    <div class="form-group">
+      <label>Last Name</label>
+      <input type="text" class="form-control" formControlName="lastName" required autofocus/>
+    </div>
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email" class="form-control" formControlName="email" required/>
+    </div>
+    <div class="form-group">
+      <label>Phone</label>
+      <input type="text" class="form-control" formControlName="phone" required/>
+    </div>
+    <div class="form-group">
+      <label>Sex</label>
+      <select class="form-control" formControlName="sex" required>
+        <option value="">Please select your sex</option>
+        <option *ngFor="let s of sex"
+                [value]="s">
+          {{s}}
+        </option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary" >Submit</button>
+  </form>
+</div>

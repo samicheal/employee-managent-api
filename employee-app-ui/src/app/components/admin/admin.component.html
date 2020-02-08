@@ -1,0 +1,24 @@
+<div class="container">
+    <table class="table table-bordered table-inverse">
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th class="text-right">Sex</th>
+      </tr>
+      <tr *ngFor="let employee of employees">
+        <td>
+          <a [routerLink]="['/admin/view', employee.id]">{{employee.firstName}}</a>
+        </td>
+        <td>
+          {{employee.lastName}}
+        </td>
+        <td>
+          {{employee.email}}
+        </td>
+        <td class="text-right">
+          {{employee.sex}}
+        </td>
+      </tr>
+    </table>
+  </div>
