@@ -9,7 +9,10 @@ import { AdminComponent } from './components/admin/admin.component';
 import { HomeComponent } from './components/home/home.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import { ViewRegisterationComponent } from './components/view-registeration/view-registeration.component';
-import { CallbackComponent } from './component/callback/callback.component';
+import {AuthService} from "./service/auth.service";
+import {CallbackComponent} from "./components/callback/callback.component";
+import {AuthGuard} from "./service/authguard.service";
+
 
 @NgModule({
   declarations: [
@@ -25,7 +28,7 @@ import { CallbackComponent } from './component/callback/callback.component';
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [EmployeesService],
+  providers: [EmployeesService, AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

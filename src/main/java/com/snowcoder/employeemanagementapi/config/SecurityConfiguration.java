@@ -11,6 +11,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @EnableWebSecurity
 @Configuration
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
+
     @Value(value = "${auth0.apiAudience}")
     private String apiAudience;
     @Value(value = "${auth0.issuer}")
@@ -23,8 +24,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .configure(http)
                 .authorizeRequests()
                 .antMatchers(HttpMethod.POST, "/api/v1/employees").permitAll()
-                .antMatchers(HttpMethod.GET, "/api/v1/employees").hasAuthority("view:registrations")
-                .antMatchers(HttpMethod.GET, "/api/v1/employees/**").hasAuthority("view:registration")
+                .antMatchers(HttpMethod.GET, "/api/v1/employees").hasAuthority("view:employees")
+                .antMatchers(HttpMethod.GET, "/api/v1/employees/**").hasAuthority("view:employee")
                 .anyRequest().authenticated();
     }
 
